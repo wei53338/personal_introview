@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>introview</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap');
+        * {
+            list-style: none;
+            padding: 0px;
+        }
+
+        body {
+            background-color: rgb(237, 237, 237);
+            margin: 0px;
+            font-size: 14px;
+            font-family: 'Mukta', sans-serif;
+        }
+        .header{
+            background: linear-gradient(to right, #f02885, #f89e38);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        .logo{
+            width: 100px;
+            /* background-color: brown; */
+            text-align: center;
+            /* padding: 10px 0px; */
+        }
+
+        .logo>a{
+            width: 100%;
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+        }
+        .navbar>ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+        }
+        .navbar>ul>li{
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+        .navbar>ul>li>a{
+            display: block;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+        .menu-icon{
+            display: none;
+            width: 60px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .menu-icon a{
+            text-decoration: none;
+            color: white;
+        }
+
+        .item:hover {
+            transform: scale(1.3);
+        }
+
+        .about_me{
+            transition: all 0.5s;
+        }
+
+        .about_me:hover{
+            color:#7f90f0;
+        }
+
+        /* section區塊 */
+        .sec1{
+            background-color: rgb(165, 226, 236);
+        }
+
+        .container{
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            margin: auto;
+        }
+
+        .person_img{
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 10px 10px 0px rgb(6, 164, 255);
+        }
+
+        .profile_img{
+            display: flex;
+            height: 600px;
+            width: 42%;
+            align-items: center;
+        }
+
+        .discription{
+            display: flex;
+            width: 48%;
+            flex-wrap: wrap;
+            margin: 20px 0px;
+        }
+
+        .discription1{
+            width: 100%;
+            margin: auto;
+        }
+
+        .discription1 p{
+            letter-spacing: 1px;
+        }
+
+        .discription h2{
+            text-shadow: 2px 2px 2px gray;
+        }
+
+        .educate{
+            width: 92%;
+            padding: 8px;
+            margin: 5px auto;
+            border-radius: 3px;
+            background-color: rgb(153, 196, 236);
+        }
+
+        .skill{
+            width: 100%;
+        }
+
+        .skill_detail{
+            display: flex;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .skill_name{
+            display: block;
+            width: 55px;
+            text-align: center ;
+            padding:0px 10px;
+            font-weight: bold;
+        }
+
+        .skill_border{
+            position: relative;
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 20px;
+            box-shadow: 2px -2px 2px gray inset;
+        }
+
+        .skill_percent{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .skill_html{
+            border-radius: 20px;
+            background: linear-gradient(to right, #f89e59, #FF4500);
+            width: 90%;
+            animation: progress-html 2s ease-in-out;
+        }
+
+        .skill_css{
+            border-radius: 20px;
+            background: linear-gradient(to right, #93fd4c, #3bf834);
+            width: 70%;
+            animation: progress-css 2s ease-in-out;
+        }
+
+        .skill_js{
+            border-radius: 20px;
+            background: linear-gradient(to right, #5dffae, #25cbe9);
+            width: 75%;
+            animation: progress-js 2s ease-in-out;
+        }
+
+        .skill_php{
+            border-radius: 20px;
+            background: linear-gradient(to right, #657bf8, #7319af);
+            width: 65%;
+            animation: progress-php 2s ease-in-out;
+        }
+
+        .skill_mysql{
+            border-radius: 20px;
+            background: linear-gradient(to right, #ec2be3, #f02885);
+            width: 60%;
+            animation: progress-mysql 2s ease-in-out;
+        }
+
+        @keyframes progress-html{
+            from {
+                width: 0%;
+            }
+            to {
+                width: 90%;
+            }
+        }
+
+        @keyframes progress-css{
+            from {
+                width: 0%;
+            }
+            to {
+                width: 70%;
+            }
+        }
+
+        @keyframes progress-js{
+            from {
+                width: 0%;
+            }
+            to {
+                width: 75%;
+            }
+        }
+
+        @keyframes progress-php{
+            from {
+                width: 0%;
+            }
+            to {
+                width: 65%;
+            }
+        }
+
+        @keyframes progress-mysql{
+            from {
+                width: 0%;
+            }
+            to {
+                width: 60%;
+            }
+        }
+        
+
+        .sec2{
+            background-color: rgb(124, 221, 236);
+        }
+
+        .container2{
+            display: flex;
+            flex-wrap: wrap;
+            width: 80%;
+            margin: auto;
+            justify-content: space-around;
+        }
+
+        .container2>h2{
+            width: 100%;
+            text-shadow: 2px 2px 2px gray;
+        }
+
+        .container2>div{
+            display: flex;
+            height: 100%;
+            width: 100%;
+            /* justify-content: center; */
+            align-items: center;
+            margin: 10px 0;
+            border-bottom: 1px solid gray;
+        }
+
+        .container2>div>h2{
+            width: 100px;
+            padding-right: 30px;
+        }
+
+        .container2>div>img{
+            padding-right: 20px;
+            border-radius: 50%;
+        }
+
+        .photo_i{
+            display: flex;
+            height: 50px;
+            width: 50px;
+            justify-content: center;
+            align-items: center;
+            padding-right: 20px;
+        }
+
+        .ex{
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .sec3{
+            background-color: rgb(165, 226, 236);
+            padding-bottom: 30px;
+        }
+
+        .sec3 h2{
+            width: 80%;
+            margin: auto;
+            text-shadow: 2px 2px 2px gray;
+            padding: 20px 0px;
+        }
+
+        .photo_grid{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(3, 200px);
+            gap: 10px;
+            width: 80%;
+            margin: auto;
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .side {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            transition: transform 0.5s;
+        }
+
+        .card:nth-child(3){
+            grid-area: 1 / 3 / 2 / 5;
+        }
+
+        .card:nth-child(5){
+            grid-area: 2 / 2 / 4 / 4;
+        }
+
+        .side img {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+        }
+
+        .back {
+            display: flex;
+            background: #4dafff;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            transform: rotateY(180deg);
+            transition: transform 0.5s;
+        }
+
+        .card:hover .side {
+            transform: rotateY(180deg);
+        }
+
+        .card:hover .back {
+            transform: rotateY(0deg);
+        }
+
+        .sec4{
+            background: linear-gradient(to right, #dfffab, #f89e38);
+        }
+
+        .container4{
+            display: flex;
+            width: 80%;
+            margin: auto;
+            justify-content: space-between;
+        }
+
+        .container4>div{
+            width: 48%;
+        }
+
+        .con1{
+            display: flex;
+            align-items: center;
+        }
+
+        .contact_h2{
+            font-size: 24px;
+        }
+
+        .contact_p, .info>li{
+            letter-spacing: 1px;
+        }
+
+        .findme_icon>ul{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        label{
+            display: block;
+            width: 80%;
+            padding-top: 20px;
+            margin-bottom: 5px;
+            margin: auto;
+        }
+
+        input, textarea{
+            display: block;
+            width: 78%;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px gray inset;
+            margin-bottom: 20px;
+            margin: auto;
+        }
+        
+        button{
+            display: block;
+            font-weight: bold;
+            padding: 10px 30px;
+            margin-bottom: 20px;
+            background-image: linear-gradient(to right bottom, rgb(255, 115, 0), rgb(253, 60, 60));
+            border-radius: 10px;
+            margin: 20px auto;
+            letter-spacing: 2px;
+        }
+
+        footer{
+            display: flex;
+            background-color: black;
+            justify-content: center;
+        }
+
+        footer>div{
+            display: flex;
+            color: white;
+            margin: 10px 0;
+            padding: 5px;
+        }
+
+        /* 手機 */
+        @media screen and (max-width: 767px) {
+            .header{
+                flex-wrap: wrap;
+                align-items:stretch;
+            }
+            .menu-icon{
+                display: block;
+                background: #8b0f9f;
+                padding: 5px;
+                display: flex;
+                color: #fff;
+                font-family: 'Dosis';
+                justify-content: center;
+                align-items: center;
+            }
+            .navbar{
+                width: 100%;
+            }
+            .navbar>ul{
+                /* display: none; */
+                flex-direction: column;
+            }
+            .navbar>ul>li{
+                display: block;
+                background-color: rgb(238, 188, 96);
+                padding: 10px;
+                text-align: center;
+                border-bottom: 1px solid #333;
+                flex: 1 1 0%;
+            }
+
+            .container{
+                flex-direction: column;
+            }
+
+            .container>div{
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .container2{
+                flex-direction: column;
+            }
+
+            .container2>div{
+                width: 100%;
+                height: 150px;
+                margin-bottom: 20px;
+            }
+
+            .container2 div h2{
+                width: 100px;
+            }
+
+            .container3>div{
+                width: 48%;
+                height: 100px;
+                margin-bottom: 5px;
+            }
+
+            .container3>div:nth-child(1){
+                order: 1;
+            }
+            .container3>div:nth-child(2){
+                order: 2;
+            }
+            .container3>div:nth-child(3){
+                order: 4;
+            }
+            .container3>div:nth-child(4){
+                order: 3;
+            }
+            .container3>div:nth-child(5){
+                order: 5;
+            }
+            .container3>div:nth-child(6){
+                order: 6;
+            }
+            .txt{
+                background-color: orange !important;
+            }
+
+            /* section */
+            
+
+            .profile_img{
+                width: 100%;
+                height: 550px;
+                justify-content: center;
+            }
+
+            .person_img{
+            width: 90%;
+            max-width: 400px;
+            }
+
+            .sec3{
+                height: 1000px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .sec3 h2{
+                width: 80%;
+            }
+
+            .photo_grid{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                width: 80%;
+            }
+
+            .card {
+                width: 46%;
+                height: 200px;
+                max-height: 100%;
+            }
+
+
+            .container4{
+                flex-wrap: wrap;
+            }
+
+            .container4>div{
+                width: 100%;
+            }
+
+            label{
+                width: 100%;
+            }
+
+            input,textarea{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html" class="item about_me">
+                <img src="./img/icon_logo.png" alt="">
+            </a>
+        </div>
+        <div class="menu-icon">
+            <a href="#" alt="menu" class="item about_me">Menu</a>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li class="item about_me"><a href="" class="about_me">About</a></li>
+                <li class="item about_me"><a href="">Experience</a></li>
+                <li class="item about_me"><a href="">Portfolio</a></li>
+                <li class="item about_me"><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="sec1">
+        <div class="circle1"></div>
+        <div class="container">
+            <div class="profile_img">
+                <img src="./img/person_img.jpg" alt="person" class="person_img">
+            </div>
+            <div class="discription">
+                <div class="discription1">
+                    <h2>立志成為前端工程師</h2>
+                    <p>大家好，我是林霆威，畢業於資訊工程學系，現在專注於學習網頁前端技術。我對HTML、CSS和JavaScript特別感興趣，並努力掌握各種前端框架，如React和Vue。希望能通過這些技術打造出既美觀又實用的網站。在學習過程中，我也喜歡參與開源專案，與其他開發者交流經驗。期待未來能在這個領域中有所成就，並為使用者帶來更好的體驗！</p>
+                    <h2>學歷</h2>
+                    <div class="educate">逢甲大學 資訊工程學系</div>
+                    <div class="educate">逢甲大學 資訊工程學系1</div>
+                </div>
+                <div class="skill">
+                    <h2>技能</h2>
+                </div>
+                <div class="skill_detail">
+                    <span class="skill_name">HTML</span>
+                    <div class="skill_border">
+                        <span class="skill_percent skill_html">90%</span>
+                    </div>
+                </div>
+                <div class="skill_detail">
+                    <span class="skill_name">CSS</span>
+                    <div class="skill_border">
+                        <span class="skill_percent skill_css">70%</span>
+                    </div>
+                </div>
+                <div class="skill_detail">
+                    <span class="skill_name">JS</span>
+                    <div class="skill_border">
+                        <span class="skill_percent skill_js">75%</span>
+                    </div>
+                </div>
+                <div class="skill_detail">
+                    <span class="skill_name">PHP</span>
+                    <div class="skill_border">
+                        <span class="skill_percent skill_php">65%</span>
+                    </div>
+                </div>
+                <div class="skill_detail">
+                    <span class="skill_name">MYSQL</span>
+                    <div class="skill_border">
+                        <span class="skill_percent skill_mysql">60%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sec2">
+        <div class="container2">
+            <h2>經歷</h2>
+            <div>
+                <h2>2019-2023</h2>
+                <img src="./img/fcu.jpg">
+                <div class="ex">FCU Student</div>
+            </div>
+            <div>
+                <h2>2019-2020</h2>
+                <div class="photo_i">
+                    <i class="fa-solid fa-table-tennis-paddle-ball fa-2xl"></i>
+                </div>
+                    <div class="ex">Table tennis coach</div>
+            </div>
+        </div>
+    </section>
+    <section class="sec3">
+        <h2>作品集</h2>
+        <div class="photo_grid">
+            <div class="card">
+                <div class="side">
+                    <img src="./img/profile1.jpg" alt="Project 1">
+                </div>
+                <div class="side back">Project 1</div>
+            </div>
+            <div class="card">
+                <div class="side">
+                    <img src="./img/profile2.jpg" alt="Project 2">
+                </div>
+                <div class="side back">Project 2</div>
+            </div>
+            <div class="card">
+                <div class="side">
+                    <img src="img/profile3.jpg" alt="Project 3">
+                </div>
+                <div class="side back">Project 3</div>
+            </div>
+            <div class="card">
+                <div class="side">
+                    <img src="img/profile4.jpg" alt="Project 4">
+                </div>
+                <div class="side back">Project 4</div>
+            </div>
+            <div class="card">
+                <div class="side">
+                    <img src="img/profile5.jpg" alt="Project 5">
+                </div>
+                <div class="side back">Project 5</div>
+            </div>
+            <div class="card">
+                <div class="side">
+                    <img src="img/profile6.jpg" alt="Project 6">
+                </div>
+                <div class="side back">Project 6</div>
+            </div>
+            <div class="card">
+                <div class="side">
+                    <img src="img/profile7.jpg" alt="Project 7">
+                </div>
+                <div class="side back">Project 7</div>
+            </div>
+            <div class="card">
+                <div class="side">
+                    <img src="img/profile8.jpg" alt="Project 8">
+                </div>
+                <div class="side back">Project 8</div>
+            </div>
+        </div>
+    </section>
+    <section class="sec4">
+        <div class="container4">
+            <div class="con1">
+                <div>
+                    <h2 class="contact_h2">Contact Me</h2>
+                    <p class="contact_p">如有任何問題或疑問，請隨時聯絡我。</p>
+                    <ul class="info">
+                        <li><i class="fas fa-map-marker-alt"></i>台北市北投區111巷111號</li>
+                        <li><i class="fas fa-phone"></i>02-1234-5678</li>
+                        <li><i class="fas fa-envelope"></i>weeei@mail.com</li>
+                    </ul>
+                    <h2 class="contact_h2">More</h2>
+                    <div class="findme_icon">
+                        <ul>
+                            <li class="item"><a href="#" alt="line"><i class="fa-brands fa-line fa-beat fa-2xl" style="color: #0ad006;"></i></a></li>
+                            <li class="item"><a href="#" alt="facebook"><i class="fa-brands fa-facebook fa-beat fa-2xl" style="color: #005eff;"></i></i></a></li>
+                            <li class="item"><a href="#" alt="instagram"><i class="fa-brands fa-instagram fa-beat fa-2xl" style="color: #ff00bb;"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <form>
+                    <label for="name">姓名</label>
+                    <input id="name" type="text" name="Username" placeholder="Enter Username">
+                    <label for="email">email</label>
+                    <input id="email" type="email" name="email" placeholder="Enter Email">
+                    <label for="phone">電話</label>
+                    <input id="phone" type="tel" name="Phone" placeholder="Enter Phone Number">
+                    <label for="msg">訊息</label>
+                    <textarea id="msg" name="message" rows="8"></textarea>
+                    <button type="submit">
+                        確定送出
+                    </button>
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div>Copyright&copy;2024 Wei.com</div>
+    </footer>
+</body>
+</html>
